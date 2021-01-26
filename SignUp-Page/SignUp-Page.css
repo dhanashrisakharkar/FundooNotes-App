@@ -1,0 +1,120 @@
+
+body {
+
+    background-image: url(../Assets/images/water2.jpg) ;
+  
+    background-repeat: no-repeat;
+  
+      background-attachment: fixed;
+  
+    background-size: cover;
+    
+
+    animation: fadeInAnimation ease 3s ;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+    /* color: #FFFFFF; */
+  
+    }
+    @keyframes fadeInAnimation { 
+        0% { 
+            opacity: 0; 
+        } 
+        100% { 
+            opacity: 1; 
+         } 
+    } 
+
+    .card{
+        width: 40%;
+        height: 70%;
+        background-color: white;
+        position: absolute;
+        margin-top: 8%;
+        margin-left: 29%;
+        opacity: 1;
+    }
+    
+    .fundoo-tittle{
+        font: 1em sans-serif;
+        font-style:normal ;
+        font-size: 30px;
+        margin-left: 35%;
+        letter-spacing: -0.7mm;
+        margin-top: 2%;
+
+    }
+    .form-div {
+        margin: 50px auto 50px;
+        padding: 25px 15px 10px 15px;
+        border: 4px solid #80ced7;
+        border-radius: 30px;
+        font-size: 1.1em;
+        font-family: 'Merriweather&display=swap', serif;
+      }
+      /* .form-group label {
+        width: 120px;
+       
+       
+      } */
+      /* form section div label { display: block; } */
+
+      /* input, label {
+        display:block;
+    } */
+    
+      .form-group{
+        display: inline-flex;
+
+      }
+    
+    .sign-up{
+        margin-left: 35%;
+        color: black;
+        font:  sans-serif;
+    }
+    label, input {
+        display: block;
+    }
+    ul.form {
+        width  : 500px;
+        padding: 0px;
+        margin : 0px;
+        list-style-type: none;
+        margin-top: 5%;
+        margin-left: 7%;
+    }
+    ul.form li  {
+        width : 500px;
+    }
+    ul.form li input {
+        width : 200px;
+    }
+    ul.form li textarea {
+        width : 450px;
+        height: 150px;
+    }
+    ul.form li.twoColumnPart {
+        float : left;
+        width : 230px;
+    }
+    .email{
+        width: 85.5%;
+    }
+    .password{
+        margin-top: 3%;
+    }
+    .btn-primary{
+        width: 40%;
+        margin-left: 46.5%;
+        margin-top: -9%;
+        /* background-color: palevioletred; */
+        /* background-color :#ff6347;
+        border-color:#ff6347 ; */
+    }
+    .link{
+        margin-top: 2%;
+    }
+    /* .button{
+        margin-left: 60%;
+    } */
