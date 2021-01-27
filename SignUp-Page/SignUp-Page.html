@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="SignUp-Page.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,14 +17,17 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Login Page</title>
+<script defer src="./Get-set.js"></script>
+   <title>SignUp Page</title>
 </head>
 <body class="bck-image">
     <main>
-        <div class="card" >
-            <div class="container">
+      <div class="card" >
+      <div class="container">
+      
+           
                 <div class="fundoo-tittle">
-                    <span style=" color: #0606f8" >F</span>
+                <span style=" color: #0606f8" >F</span>
               <span style=" color: #d10303" >u</span>
               <span style=" color: #f0b000">n</span>
               <span style=" color: #0606f8 ">d</span>
@@ -31,39 +37,68 @@
               <div class="sign-up">
                   <h3>Sign Up</h3>
               </div>
-              <form class="form-field" action="/action_page.php">
+              <form class="form-field" action="#" onsubmit="save()">
                 <section>
                     <ul class="form">
                   <div class="form-group">
-                    <li class="twoColumnPart">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname" placeholder="Enter first name" class="form-control " required>
+                    <div class="row">
+                    <!-- <li class="twoColumnPart"> -->
                     
-                    </li>
-                    <li class="twoColumnPart">
+                        <div class="col-sm-3 col-md-6">
+                          <div class="fname">
+                    <label for="fname">First Name</label>
+                    <input  type="text" name="fname" id="fname" placeholder="Enter first name" class="form-control " required>
+                    <error-output class="text-error" for="text"></error-output>
+                  </div>
+                      </div>
+                    <!-- </li> -->
+                 
+                    <!-- <li class="twoColumnPart"> -->
+                     
+                      <div  class="col-sm-9 col-md-6">
+                        <div class="lname">
                         <label for="lname">Last Name</label>
                     <!-- <input type="text" name="lname"id="lname" placeholder="Enter lastname" class="form-control form-control-lg"> -->
-                    <input type="text" name="lname"id="lname" placeholder="Enter last name" class="form-control " required>
-                    </li>
+                    <input type="text" name="lname" id="lname" placeholder="Enter last name" class="form-control " required>
+                    <error-output class="Ltext-error" for="text"></error-output>
+                  </div>
+                </div>
+                    <!-- </li> -->
+                  </div>
                   </div>
                   <div class="email">
-                   
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12">
                   <label for="email">Email:</label>
                   <input type="email" class="form-control" id="email" placeholder="Enter password" name="email" required>
-                
+                  <error-output class="email-error" for="text"></error-output>
+                </div>
+                </div>
                   </div>
                   
                  
                   <div class="form-group">
                     <div class="password">
-                      <li class="twoColumnPart">
+                      <div class="row">
+                      <!-- <li class="twoColumnPart"> -->
+                        <div class="col-sm-3 col-md-6">
+                          <div class="pwd">
                     <label for="pwd">Password</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-                     </li>
-                     <li class="twoColumnPart">
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+                    <error-output class="pwd-error" for="text"></error-output>
+                  </div>
+                        </div>
+                     <!-- </li> -->
+                     <!-- <li class="twoColumnPart"> -->
+                      <div class="col-sm-9 col-md-6">
+                        <div class="rpwd">
                         <label for="rpwd">Confirm Password</label>
-                        <input type="rpassword" class="form-control" id="rpwd" placeholder="Re-enter password" name="rpswd" required>
-                    </li>
+                        <input type="password" class="form-control" id="rpwd" placeholder="Re-enter password" name="rpwd" required>
+                        <error-output class="text-error" for="text"></error-output>
+                      </div>
+                    </div>
+                    <!-- </li> -->
+                  </div>
                     </div>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -71,9 +106,9 @@
                   </div >
                   <div class="button">
                       <div class="link">
-                      <a style="color: blue;" >Forget password</a>
+                      <a style="color: blue;" >Login instead</a>
                     </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
                 </div>
                   </ul>
                 </section>
@@ -83,7 +118,7 @@
 
     </main>
 
-
+    <script defer src="./SignUp-page.js"></script>
     
 </body>
 </html>
