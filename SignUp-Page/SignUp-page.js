@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const emailError = document.querySelector('.email-error');
     const pwdError = document.querySelector('.pwd-error');
     const rpwdError = document.querySelector('.rpwd-error');
-    fname.addEventListener('input', function() {
+    fname.addEventListener('input', function () {
         if (fname.value.length == 0) {
             textError.textContent = "";
             return;
@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     })
 
-    lname.addEventListener('input', function() {
+    lname.addEventListener('input', function () {
         if (lname.value.length == 0) {
             textError.textContent = "";
             return;
@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     })
 
-    email.addEventListener('input', function() {
+    email.addEventListener('input', function () {
         if (email.value.length == 0) {
             emailError.textContent = "";
             return;
@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     })
 
-    pwd.addEventListener('input', function() {
+    pwd.addEventListener('input', function () {
         if (pwd.value.length == 0) {
             pwdError.textContent = "";
             return;
@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     })
 
-    rpwd.addEventListener('input', function() {
+    rpwd.addEventListener('input', function () {
         if (rpwd.value.length == 0) {
             rpwdError.textContent = "";
             return;
@@ -77,13 +77,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
-// const save = () => {
-//         try {
-//             let employeePayrollData = createEmployeePayroll();
-//         } catch (e) {
-//             return;
-//         }
-//     }
+
 
 const save = () => {
     try {
@@ -94,7 +88,7 @@ const save = () => {
     }
 }
 
-    //Use Case 11
+//Use Case 11
 const createUserDetail = () => {
     let userData = new SignUpData();
     try {
@@ -131,14 +125,7 @@ const createUserDetail = () => {
         setTextValue('.rpwd-error', e);
         throw e;
     }
-    // employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
-    // employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
-    // employeePayrollData.department = getSelectedValues('[name=department]').pop();
-    // employeePayrollData.salary = getInputValueById('#salary');
-    // employeePayrollData.notes = getInputValueById('#notes').pop();
-    // let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
-    // employeePayrollData.date = Date.parse(data);
-    // alert(employeePayrollData.toString());
+
     return userData;
 
 }
@@ -158,18 +145,10 @@ const getInputValueById = (id) => {
 }
 
 const getInputElementValue = (id) => {
-        let value = document.getElementById(id).value;
-        return value;
-    }
-    //Use Case 12
-// const save = () => {
-//     try {
-//         let employeePayrollData = createEmployeePayroll();
-//         createAndUpdateStorage(employeePayrollData)
-//     } catch (e) {
-//         return;
-//     }
-// }
+    let value = document.getElementById(id).value;
+    return value;
+}
+
 
 function createAndUpdateStorage(userData) {
     let userDataList = JSON.parse(localStorage.getItem("UserDetail"));
@@ -181,5 +160,5 @@ function createAndUpdateStorage(userData) {
 
     localStorage.setItem("UserDetail", JSON.stringify(userDataList));
     alert(userDataList.toString());
-   
+
 }
