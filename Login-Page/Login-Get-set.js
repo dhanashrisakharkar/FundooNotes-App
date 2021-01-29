@@ -3,35 +3,25 @@ class LoginData {
     set id(id) {
         this._id = id
     }
-
-    
-    get email(){
+    get email() {
         return this.email
     }
-    set email(email){
+    set email(email) {
         let emailRegex = RegExp('^[a-zA-Z]{3}[.]{1}[a-zA-Z]{3}(@)[a-zA-Z]{2}[.][a-zA-Z]{2}[.][a-zA-Z]{2}$')
-        if(emailRegex.test(email))
-        this._email = email
+        if (emailRegex.test(email))
+            this._email = email
         else throw 'email is Incorrect'
     }
-
-    get pwd(){
+    get pwd() {
         return this.pwd
     }
-    set pwd(pwd){
-        // let pwdRegex = RegExp('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$')
+    set pwd(pwd) {
         let pwdRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$')
-        if(pwdRegex.test(pwd))
-        this._pwd = pwd
+        if (pwdRegex.test(pwd))
+            this._pwd = pwd
         else throw 'password is Incorrect'
     }
-
-   
-
-    
-
     toString() {
-       
-        return "id=" + this.id  + this.lname + "email" + this.email + "password" + this.pwd ;
+        return "id=" + this.id + this.lname + "email" + this.email + "password" + this.pwd;
     }
 }
