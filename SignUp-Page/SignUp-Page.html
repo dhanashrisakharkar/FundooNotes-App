@@ -17,7 +17,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+<!-- <script type="module" src="../Service-file/Service.js"></script>     -->
 <script defer src="./Get-set.js"></script>
+<!-- <script    src="../Service-file/http-service.js"></script> 
+<script   src="../Service-file/http-server.html"></script> -->
    <title>SignUp Page</title>
 </head>
 <body class="bck-image">
@@ -37,7 +41,7 @@
               <div class="sign-up">
                   <h3>Sign Up</h3>
               </div>
-              <form class="form-field" action="#" onsubmit="save()">
+              <form class="form-field" action="#" id="formElem" name="fileinfo" onsubmit=" return ( save(event)  &&   store()) ; ">
                 <section>
                     <ul class="form">
                   <div class="form-group">
@@ -117,8 +121,66 @@
         </div>
 
     </main>
-
-    <script defer src="./SignUp-page.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script>
+      
+    //   formElem.onsubmit = async (e) => {
+    //     e.preventDefault();
+    //     // const  formElem =
+    //     //     {
+                
+    //     //         firstName: fname,
+    //     //         "lastName": lname,
+    //     //         "email": email ,
+    //     //         "password":pwd,
+    //     //         "cartId" : "",
+    //     //         "service": "advance"
+                
+    //     //     };
+    //     let formData = new FormData();
+    //   formData.append("firstName", "dhanashri");
+    //   formData.append("lastName", "sakharkar");
+    //   formData.append("email", "email@gmail.com");
+    //   formData.append("password", "pwd@333");
+    //   formData.append("cartId", "1");
     
+    //     let response = await fetch('http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp', {
+    //       method: 'POST',
+    //       body: formData,
+         
+    //     });
+    //     console.log(FormData);
+    
+    //     let result = await response.json();
+    
+    //     alert(result.message);
+    //   };
+    //
+//     var form = document.forms.namedItem("fileinfo");
+// form.addEventListener('submit', function(ev) {
+//     var oOutput = document.querySelector("div"),
+//       oData = new FormData(form);
+
+//   oData.append("CustomField", "This is some extra data");
+
+//   var oReq = new XMLHttpRequest();
+//   oReq.open("POST", "http://fundoonotes.incubation.bridgelabz.com/api/user/userSignUp", true);
+//   oReq.onload = function(oEvent) {
+//     if (oReq.status == 200) {
+//       oOutput.innerHTML = "Uploaded!";
+//     } else {
+//       oOutput.innerHTML = "Error " + oReq.status + " occurred when trying to upload your file.<br \/>";
+//     }
+//   };
+
+//   oReq.send(oData);
+//   ev.preventDefault();
+// }, false); 
+    </script>
+    <script defer   src="./SignUp-page.js"></script>
+    <script defer   src="./http-service.js"></script>
+   
+    
+
 </body>
 </html>
