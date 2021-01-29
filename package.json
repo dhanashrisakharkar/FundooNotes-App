@@ -1,0 +1,27 @@
+{
+  "name": "fundoonotes-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhanashrisakharkar/FundooNotes-App.git"
+  },
+  "keywords": [
+    "www"
+  ],
+  "author": "dhanashri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhanashrisakharkar/FundooNotes-App/issues"
+  },
+  "homepage": "https://github.com/dhanashrisakharkar/FundooNotes-App#readme"
+}
