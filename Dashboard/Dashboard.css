@@ -12,14 +12,11 @@
     font-style: initial;
 }
 .bg-dark {
-    /* background-color: whitesmoke!important; */
     color: black;
     border-color: rgba(0,0,0,.2);
-    /* margin-left: 50%; */
     width: 100%;
     height: 30%;
 }
-
 .pl-5, .px-5 {
     padding-left: 3rem!important;
     margin-left: 5%;
@@ -55,9 +52,7 @@
     line-height: 20px;
     transition: width 0.4s linear;
     z-index: 2;
-   
 }
-
 .search .search-input {
     background-color: white;
     padding: 0 10px;
@@ -69,7 +64,6 @@
     transition: width 0.4s linear;
     text-align: center;
 }
-
 .search-icon {
     height: 34px;
     width: 34px;
@@ -85,28 +79,18 @@
     border-radius: 5px;
     margin-right: 90%;
 }
-
 .search-icon:hover {
     color: #fff !important
 }
-
 a:link {
     text-decoration: none
 }
-
-/* .navbar-dark .navbar-toggler-icon {
-    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29'
-     stroke-linecap='round' stroke-miterlimit='10'
-      stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
-} */
-
 .container {
     display: inline-block;
     cursor: pointer;
   }
   .button{
       margin-top: 20px;
-      /* height: 30px; */
   }
   .avatar {
     vertical-align: middle;
@@ -118,7 +102,6 @@ a:link {
       margin-left: 30%;
       margin-top: 1%;
   }
-  
   .bar1, .bar2, .bar3 {
     width: 25px;
     height: 3px;
@@ -127,19 +110,13 @@ a:link {
     transition: 0.4s;
     border: thin;
   }
-  
-  /* Rotate first bar */
   .change .bar1 {
     -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
     transform: rotate(-45deg) translate(-9px, 6px) ;
   }
-  
-  /* Fade out the second bar */
   .change .bar2 {
     opacity: 0;
   }
-  
-  /* Rotate last bar */
   .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
     transform: rotate(45deg) translate(-8px, -8px) ;
@@ -150,7 +127,6 @@ a:link {
   body {
     overflow-x: hidden;
     }
-    
     #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -158,18 +134,14 @@ a:link {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     }
-    
     #wrapper.toggled {
         padding-left: 250px;
     }
-    
     #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    /* right: 1120px; */
     width: 0;
     height: 100%;
-    /* margin-right: -250px; */
     left: 270px;
     margin-left: -250px;
     margin-left: -20%;
@@ -180,38 +152,27 @@ a:link {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     }
-    /* .navbar-dark .navbar-toggler-icon{
-        background-image : url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
-    } */
-    .navbar-dark .navbar-toggler-icon{
+   .navbar-dark .navbar-toggler-icon{
         background-image : url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
     #nav-toggle-button{
         background-color:red;
     }
-    
     #wrapper.toggled #sidebar-wrapper {
     width: 250px;
-    /* padding-left: 250px; */
     }
     .bg-primary {
         background-color: whitesmoke!important;
     }
-    
     #page-content-wrapper {
     width: 100%;
     position: absolute;
     padding: 15px;
     }
-    
     #wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -250px;
     }
-    
-    
-    /* Sidebar Styles */
-    
     .sidebar-nav {
     position: absolute;
     top: 0;
@@ -220,38 +181,31 @@ a:link {
     padding: 0;
     list-style: none;
     }
-    
     .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
     }
-    
     .sidebar-nav li a {
     display: block;
     text-decoration: none;
     color: #999999;
     }
-    
     .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
     background: rgba(255, 255, 255, 0.2);
     }
-    
     .sidebar-nav li a:active, .sidebar-nav li a:focus {
     text-decoration: none;
     }
-    
     .sidebar-nav>.sidebar-brand {
     height: 65px;
     font-size: 18px;
     line-height: 60px;
     }
-    
     .sidebar-nav>.sidebar-brand a {
     color: #999999;
     }
-    
     .sidebar-nav>.sidebar-brand a:hover {
     color: #fff;
     background: none;
