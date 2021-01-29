@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css"> -->
-    <!-- Bootstrap CSS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -17,7 +15,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script defer src="./Login-Get-set.js"></script>
-
     <title>Login Page</title>
 </head>
 <body>
@@ -38,32 +35,22 @@
               <form class="form-field" action="#" onsubmit="save()">
                 <section>
                     <ul class="form">
-                 <!-- <div class="form-group"> -->
                   <div class="col-sm-12 col-md-12">
                   <div class="email">
-                   
                   <label for="email">Email:</label>
                   <input type="email" class="form-control" id="email" placeholder="Enter password" name="email" required>
-                  <error-output class="email-error" for="text"></error-output>
-                
+                  <error-output class="email-error" for="text"></error-output> 
                   </div>
-                  <!-- </div> -->
                  </div>
-                 <!-- <div class="form-group"> -->
                   <div class="col-sm-12 col-md-12">
                     <div class="password">
-                      
                     <label for="pwd">Password:</label>
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
                     <error-output class="pwd-error" for="text"></error-output>
-                     
                     </div>
-                    <!-- </div> -->
                  </div>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Please fill out this field.</div>
-                
-                 
                   <div class="button">
                       <div class="link">
                       <a style="color: blue;" >Forget Password</a>
@@ -75,7 +62,6 @@
               </form>
             </div>
         </div>
-
     </main>
     <script defer src="./Login-Page.js"></script>
 </body>
