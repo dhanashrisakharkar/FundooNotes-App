@@ -1,5 +1,3 @@
-// import { register } from '../Service-file/Service.js';
-
 window.addEventListener('DOMContentLoaded', (event) => {
     const fname = document.querySelector('#fname');
     const lname = document.querySelector('#lname');
@@ -84,16 +82,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const store = () => {
     try {
         createUserDetail();
-        // let userData = createUserDetail();
-        // createAndUpdateStorage(userData)
-        return ;
-      
+        return;
+
     } catch (e) {
         return;
     }
 }
 
-//Use Case 11
 const createUserDetail = () => {
     let userData = new SignUpData();
     try {
@@ -154,21 +149,6 @@ const getInputElementValue = (id) => {
     return value;
 }
 
-
-// function createAndUpdateStorage(userData) {
-//     let userDataList = JSON.parse(localStorage.getItem("UserDetail"));
-//     if (userDataList != undefined) {
-//         userDataList.push(userData);
-//     } else {
-//         userDataList = [userData]
-//     }
-
-//     localStorage.setItem("UserDetail", JSON.stringify(userDataList));
-//     saveData();
-//     // window.location.replace(site_properties.login_page);
-//     alert(userDataList.toString());
-//  return;
-// }
 
 
 
