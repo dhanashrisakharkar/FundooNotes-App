@@ -1,3 +1,5 @@
+// import { register } from '../Service-file/Service.js';
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const fname = document.querySelector('#fname');
     const lname = document.querySelector('#lname');
@@ -79,10 +81,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-const save = () => {
+const store = () => {
     try {
-        let userData = createUserDetail();
-        createAndUpdateStorage(userData)
+        createUserDetail();
+        // let userData = createUserDetail();
+        // createAndUpdateStorage(userData)
+        return ;
+      
     } catch (e) {
         return;
     }
@@ -150,15 +155,21 @@ const getInputElementValue = (id) => {
 }
 
 
-function createAndUpdateStorage(userData) {
-    let userDataList = JSON.parse(localStorage.getItem("UserDetail"));
-    if (userDataList != undefined) {
-        userDataList.push(userData);
-    } else {
-        userDataList = [userData]
-    }
+// function createAndUpdateStorage(userData) {
+//     let userDataList = JSON.parse(localStorage.getItem("UserDetail"));
+//     if (userDataList != undefined) {
+//         userDataList.push(userData);
+//     } else {
+//         userDataList = [userData]
+//     }
 
-    localStorage.setItem("UserDetail", JSON.stringify(userDataList));
-    alert(userDataList.toString());
+//     localStorage.setItem("UserDetail", JSON.stringify(userDataList));
+//     saveData();
+//     // window.location.replace(site_properties.login_page);
+//     alert(userDataList.toString());
+//  return;
+// }
 
-}
+
+
+
