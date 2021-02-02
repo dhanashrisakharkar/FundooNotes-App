@@ -44,7 +44,7 @@ function makeServiceCall(methodType, url, async = true, data) {
 }
 
 const createAddReset = () => {
-    
+
     const email = document.querySelector('#email').value;
     const pwd = document.querySelector('#pwd').value;
     const formData =
@@ -62,22 +62,17 @@ const createAddReset = () => {
     makeServiceCall(methodCall, postURL, true, formData)
         .then(responseText => {
             console.log(responseText)
-            // let response = JSON.parse(xhr.responseText);
-            // var games_serialized = JSON.stringify(responseText);
-            // localStorage.setItem('gamesStored', games_serialized.id);
-            // console.log(responseText.)
             let response = JSON.parse(responseText);
             console.log(response)
             console.log(response.id)
 
-    localStorage.setItem("token", response.id);
-    localStorage.setItem("firstName", response.firstName);
-    localStorage.setItem("lastName", response.lastName);
-    localStorage.setItem("email", response.email);
-    // localStorage.setItem( JSON.stringify(responseText));
-    setTimeout(() => {
-        window.location.replace(site_properties.dashboard);
-      }, 2000);
+            localStorage.setItem("token", response.id);
+            localStorage.setItem("firstName", response.firstName);
+            localStorage.setItem("lastName", response.lastName);
+            localStorage.setItem("email", response.email);
+            setTimeout(() => {
+                window.location.replace(site_properties.dashboard);
+            }, 2000);
             resetForm();
         })
         .catch(error => {
@@ -87,7 +82,7 @@ const createAddReset = () => {
 const resetForm = () => {
     setValue('#email', '');
     setValue('#pwd', '');
-   
+
 }
 
 const setValue = (id, value) => {
