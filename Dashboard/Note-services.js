@@ -1,23 +1,17 @@
 
-// $( document ).ready(function() {
-//     console.log( "ready!" );
-//     DisplayNotes();
-// });
-
-
 const savenote = () => {
     try {
-        // AddNote();
-       
+        AddNote();
+
         return;
 
     } catch (e) {
         return;
     }
 }
-// DisplayNotes();
 
-function makeServiceCall(methodType, url, async = true, noteData ) {
+
+function makeServiceCall(methodType, url, async = true, noteData) {
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
         xhr.onload = function () {
@@ -43,12 +37,10 @@ function makeServiceCall(methodType, url, async = true, noteData ) {
         xhr.open(methodType, url, async);
         if (noteData) {
             xhr.setRequestHeader("Content-Type", "application/json");
-            // xhr.setRequestHeader(Authorization, localStorage.getItem('token'));
             xhr.setRequestHeader("Authorization", localStorage.getItem('token'),);
-            xhr.send(JSON.stringify(noteData ));
+            xhr.send(JSON.stringify(noteData));
         } else {
             xhr.setRequestHeader("Content-Type", "application/json");
-            // xhr.setRequestHeader(Authorization, localStorage.getItem('token'));
             xhr.setRequestHeader("Authorization", localStorage.getItem('token'),);
             xhr.send();
         }
@@ -57,29 +49,23 @@ function makeServiceCall(methodType, url, async = true, noteData ) {
 }
 
 const AddNote = () => {
-    
+
     const title = document.querySelector('#title ').value;
     const description = document.querySelector('#description').value;
-    // const Authorization =  localStorage.getItem("token");
-    // console.log(Authorization)
-    // const headers = {
-    //     Authorization: localStorage.getItem('token'),
-    //   }
     const noteData =
     {
 
         "title": title,
         "description": description,
-    
+
     };
     console.log(noteData);
-    // let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes";
     let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes";
     let methodCall = "POST";
-    makeServiceCall(methodCall, postURL, true, noteData )
+    makeServiceCall(methodCall, postURL, true, noteData)
         .then(responseText => {
             console.log("note added succesfully")
-           
+            DisplayNotes();
             resetForm();
         })
         .catch(error => {
@@ -87,25 +73,25 @@ const AddNote = () => {
         });
 }
 
-function  DisplayNotes() {
-     let data = [] ;
-     let innerHtml  = "";
+function DisplayNotes() {
+    let data = [];
+    let innerHtml = "";
     let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList";
     let methodCall = "GET";
-    makeServiceCall(methodCall,postURL, true)
-                  .then(responseText => {
-                    //  console.log(responseText["data"]);
-                    let response = JSON.parse(responseText);
-                //    console.log( JSON.stringify(response));
-                console.log(response)
-                data = Object(response.data.data)
-               console.log(data)
-               console.log(data.length)
-               console.log(data[0].title)
-            
-                    for(let details of data ){
-                      
-                        innerHtml  += `
+    makeServiceCall(methodCall, postURL, true)
+        .then(responseText => {
+            //  console.log(responseText["data"]);
+            let response = JSON.parse(responseText);
+            //    console.log( JSON.stringify(response));
+            console.log(response)
+            data = Object(response.data.data)
+            console.log(data)
+            console.log(data.length)
+            console.log(data[0].title)
+
+            for (let details of data) {
+
+                innerHtml += `
                                 <div class="noteCard my-2 mx-2 card" style="width: 18rem; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important;
                                 border: 2px solid rgba(0,0,0,.125);
                                 border-radius: 0.55rem;">
@@ -115,19 +101,19 @@ function  DisplayNotes() {
                                             <button id="delete" style=" background-color: transparent; border: none; margin-left: 75%; margin-bottom: -8%; display: inline" >Delete </button>
                                         </div>
                                     </div>`
-                      };
-                      document.querySelector('#display').innerHTML = innerHtml
-                     
-                  })
-                
-               
+            };
+            document.querySelector('#display').innerHTML = innerHtml
+
+        })
+
+
 }
 
 
 const resetForm = () => {
     setValue('#title', '');
     setValue('#description', '');
-   
+
 }
 
 const setValue = (id, value) => {
