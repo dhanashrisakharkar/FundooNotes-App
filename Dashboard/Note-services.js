@@ -222,13 +222,9 @@ console.log(noteData);
         });
 }
 function deleteNote(details){
-    // let detailId = JSON.stringify(details);
-    // console.log(detailId);
     let data = {
-
         noteIdList: [details]  , 
         isDeleted: true
-
     }
     console.log(data);
     let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/trashNotes";
@@ -242,8 +238,6 @@ function deleteNote(details){
             throw error;
         });
         DisplayNotes();
-
-
 }
 
 
@@ -260,16 +254,3 @@ const setValue = (id, value) => {
 }
 
 
-// function updateNote(data){
-//     let innerHtml = "";
-//     for (let details of data) {
-
-//     }
-//     let data = {
-//         noteIdList: [details.id] ,
-//         "title": title,
-//         "description": description,
-//     }
-    
-
-// }
