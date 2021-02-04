@@ -90,20 +90,14 @@ function DisplayNotes() {
     let methodCall = "GET";
     makeServiceCall(methodCall, postURL, true)
         .then(responseText => {
-            //  console.log(responseText["data"]);
             let response = JSON.parse(responseText);
-            //    console.log( JSON.stringify(response));
-            console.log(response)
+           console.log(response)
             data = Object(response.data.data)
             console.log(data)
             console.log(data.length)
             console.log(data[0].title)
-
             for (let details of data) {
-            // console.log(details.id)
-            // const Noteid = details.id;
-            // {details.filter(details => details.isDeleted === false).map((details) =>
-                console.log(details.color)
+              console.log(details.color)
              if(details.isDeleted === false) {
                  let array = [ details.id , details.title , details.description ,details.color ]
                  color = details.color
@@ -150,11 +144,9 @@ function DisplayNotes() {
                                       <button id="${details.id}" onclick="deleteNote(this.id)" alt="delete" style=" background-color: transparent; border: none; margin-left: 75%; margin-bottom: -8%; display: inline" >Delete </button>
                                   </div>
                                   </div>
-                                        </div>
-                                        
+                                        </div>                                        
                                     </div>`
-                                    //   console.log(details)
-                                    //   )};
+
              }
             };
            
