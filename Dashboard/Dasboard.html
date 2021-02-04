@@ -17,6 +17,16 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="../css/material-wfont.min.css" rel="stylesheet">
+        <link href="../css/ripples.min.css" rel="stylesheet">
+        <link href="../css/custom.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
+        <script src="../js/piklor.js"></script>
+        <script src="../js/handlers.js"></script>
   <link rel="stylesheet" type="text/css" href="Dashboard.css">
   <title>Drawer</title>
   <script defer src="./Note-services.js"></script>
@@ -24,7 +34,7 @@
   <script>
     $(document).ready(function () {
       console.log("document loaded");
-
+     
     });
 
     $(window).on("load", function () {
@@ -44,8 +54,21 @@
     </button>
     <div class="google-keep">
       <img class="image" src="../Assets/icons/keep.icon.png">
-      <h3 class="keep">Keep</h3>
     </div>
+      <!-- <h3 class="keep"> -->
+      <!-- </h3> -->
+   
+    <div class="fundoo-tittle">
+      <li class="tittle">
+      <span style=" color: #0606f8" >F</span>
+    <span style=" color: #d10303" >u</span>
+    <span style=" color: #f0b000">n</span>
+    <span style=" color: #0606f8 ">d</span>
+    <span style=" color: green">o</span>
+    <span style=" color: #d10303">o</span>
+  </li>
+      </div>
+    
     <div class="d-flex justify-content-center px-5">
       <div class="search"> <input type="text" class="search-input" placeholder="Search..." name=""> <a href="#"
           class="glyphicon glyphicon-search"> <i class="fa fa-search"></i> </a> </div>
@@ -71,7 +94,7 @@
     </div>
     <br>
     <div>
-      <div class="card">
+      <div class="card" id="cardId">
         <div id="click-to-show" data-toggle="collapse" href="#collapse-example" aria-expanded="false"
           aria-controls="collapse-example" id="heading-example">
           <input placeholder="title....." class="middle" style="font-weight: bold;" id="title" tabindex="1"
@@ -79,7 +102,7 @@
         </div>
         <div id="collapse-example" class="collapse show" aria-labelledby="heading-example" aria-expanded="false">
           <div>
-            <input placeholder="take a note...." class="middle" id="description" tabindex="1" autocomplete="off"
+            <input placeholder="take a note...." class="middle-two" id="description" tabindex="1" autocomplete="off"
               aria-expanded="false">
           </div>
           <div>
@@ -97,6 +120,8 @@
                 <path fill-rule="evenodd"
                   d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
               </svg>
+              <label class="picker-wrapper" id="wrapperId">
+              <button class="btn" id="btnn" style=" margin-left: -20%; width: 5%;padding: 0.1%; background-color: transparent;">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette"
                 viewBox="0 0 16 16">
                 <path
@@ -104,7 +129,12 @@
                 <path
                   d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z" />
               </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image"
+              
+            </button>
+           
+              </label>
+              
+              <svg xmlns="http://www.w3.org/2000/svg"  style=" margin-left: 1%;" width="16" height="16" fill="currentColor" class="bi bi-image"
                 viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                 <path
@@ -124,13 +154,83 @@
             <div class="close-button">
               <button class="btn-button" id="close-btn" onclick="savenote()">close</button>
             </div>
+            <li class="color-picker">
+            </li>
           </div>
         </div>
+        
       </div>
+     
       <div class="display-cards">
         <div id="display" class="container-fluid"> </div>
       </div>
     </div>
+    <div id="dailog">
+      <script type="text/javascript">
+        $(function () {
+            $("#dialog").dialog({
+                modal: true,
+                autoOpen: true,
+                title: "jQuery Dialog",
+                width: 300,
+                height: 150
+            });
+            $("#btnShow").click(function () {
+                $('#dialog').dialog('open');
+            });
+        });
+    </script>
+   <script>
+     let colour = "" ;
+    window.addEventListener("load", function () {
+    var pk = new Piklor(".color-picker", [
+            "#1abc9c"
+          , "#2ecc71"
+          , "#3498db"
+          , "#9b59b6"
+          , "#34495e"
+          , "#16a085"
+          , "#27ae60"
+          , "#2980b9"
+          , "#8e44ad"
+          , "#2c3e50"
+          , "#f1c40f"
+          , "#e67e22"
+          , "#e74c3c"
+          , "#FFFFFF"
+          , "#95a5a6"
+          , "#f39c12"
+          , "#d35400"
+          , "#c0392b"
+          , "#bdc3c7"
+          , "#7f8c8d"
+        ], {
+            open: ".picker-wrapper .btn"
+        })
+      , wrapperEl = pk.getElm(".card")
+      , header = pk.getElm(".picker-wrapper")
+      , footer = pk.getElm(".middle")
+      ,discription = pk.getElm(".middle-two")
+      , button = pk.getElm(".btn")
+      ;
+        //  console.log(col)
+    pk.colorChosen(function (col) {
+        wrapperEl.style.backgroundColor = col;
+        header.style.backgroundColor = col;
+        button.style.backgroundColor = col;
+        discription.style.backgroundColor = col;
+        footer.style.backgroundColor = col;
+        colour = col;
+    });
+   
+});
+
+</script>
+<!-- <input type="button" id="btnShow"  /> -->
+<!-- <div id="dialog" style="display: none";>
+    This is a jQuery Dialog.
+</div> -->
+   
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
