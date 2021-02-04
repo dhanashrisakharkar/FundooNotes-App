@@ -21,10 +21,8 @@
   <link href="../css/ripples.min.css" rel="stylesheet">
   <link href="../css/custom.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-
   <script src="../js/piklor.js"></script>
   <script src="../js/handlers.js"></script>
   <link rel="stylesheet" type="text/css" href="Dashboard.css">
@@ -43,7 +41,6 @@
     });
   </script>
 </head>
-
 <body action="#">
   <nav class="navbar navbar-expand navbar-dark bg-primary">
     <a href="#" id="menu-toggle" class="navbar-brand">
@@ -55,9 +52,6 @@
     <div class="google-keep">
       <img class="image" src="../Assets/icons/keep.icon.png">
     </div>
-    <!-- <h3 class="keep"> -->
-    <!-- </h3> -->
-
     <div class="fundoo-tittle">
       <li class="tittle">
         <span style=" color: #0606f8">F</span>
@@ -68,7 +62,6 @@
         <span style=" color: #d10303">o</span>
       </li>
     </div>
-
     <div class="d-flex justify-content-center px-5">
       <div class="search"> <input type="text" class="search-input" placeholder="Search..." name=""> <a href="#"
           class="glyphicon glyphicon-search"> <i class="fa fa-search"></i> </a> </div>
@@ -81,11 +74,7 @@
   <div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <!-- <div> -->
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
-            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
-          </svg> -->
-        <li> <a href="#">Notes</a> </li>
+       <li> <a href="#">Notes</a> </li>
         <li> <a href="#">Reminders</a> </li>
         <li> <a href="#">Edit Labels</a> </li>
         <li> <a href="#">Archive</a> </li>
@@ -107,8 +96,7 @@
           </div>
           <div>
             <div class="svg-icon">
-              <!-- <button class="bell-button"> <i class="bi bi-bell-fill"></i></button> -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
                 viewBox="0 0 16 16">
                 <path
                   d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
@@ -130,11 +118,8 @@
                     <path
                       d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z" />
                   </svg>
-
                 </button>
-
               </label>
-
               <svg xmlns="http://www.w3.org/2000/svg" style=" margin-left: 1%;" width="16" height="16"
                 fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -212,7 +197,6 @@
             , discription = pk.getElm(".middle-two")
             , button = pk.getElm(".btn")
             ;
-          //  console.log(col)
           pk.colorChosen(function (col) {
             wrapperEl.style.backgroundColor = col;
             header.style.backgroundColor = col;
@@ -221,7 +205,6 @@
             footer.style.backgroundColor = col;
             colour = col;
           });
-
         });
       </script>
       <script src="js/jquery.min.js"></script>
