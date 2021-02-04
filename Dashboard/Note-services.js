@@ -1,7 +1,13 @@
-
+// let color = "#FFFFFF";
+// document.body.style.background = color; 
 const savenote = () => {
     try {
         AddNote();
+        document.getElementById("cardId").style.background ="#FFFFFF";
+        document.getElementById("wrapperId").style.background ="#FFFFFF";
+        document.getElementById("title").style.background ="#FFFFFF";
+        document.getElementById("description").style.background ="#FFFFFF";
+        document.getElementById("btnn").style.background ="#FFFFFF";       
 
         return;
 
@@ -48,8 +54,11 @@ function makeServiceCall(methodType, url, async = true, noteData) {
     });
 }
 
-const AddNote = () => {
 
+
+const AddNote = () => {
+    console.log(colour +" get colour");
+    const color = colour;
     const title = document.querySelector('#title ').value;
     const description = document.querySelector('#description').value;
     const noteData =
@@ -57,6 +66,7 @@ const AddNote = () => {
 
         "title": title,
         "description": description,
+        "color": color,
 
     };
     console.log(noteData);
@@ -93,13 +103,17 @@ function DisplayNotes() {
             // console.log(details.id)
             // const Noteid = details.id;
             // {details.filter(details => details.isDeleted === false).map((details) =>
+                console.log(details.color)
              if(details.isDeleted === false) {
+                 let array = [ details.id , details.title , details.description ,details.color ]
+                 color = details.color
+                 console.log(array)
                 innerHtml += `
-                                <div class="noteCard my-2 mx-2 card" style="width: 18rem; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important; 
+                                <div class="noteCard my-2 mx-2 card" style="width: 18rem;background-color:${color}; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important; 
                                 border: 2px solid rgba(0,0,0,.125);
                                 border-radius: 0.55rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title">${details.title}</h5>
+                                            <h5 class="card-title" data-toggle="modal" data-target="#myModal" onClick="updateNote('${details.id}','${details.title}','${details.description}',this )">${details.title}</h5>
                                             <p class="card-text" style="margin-top: 10%;">${details.description}</p>
                                             <div class="svg-icon"  padding: 10px 0px;">
                                             <svg style="margin-left: 3px; xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
@@ -137,6 +151,7 @@ function DisplayNotes() {
                                   </div>
                                   </div>
                                         </div>
+                                        
                                     </div>`
                                     //   console.log(details)
                                     //   )};
@@ -149,7 +164,71 @@ function DisplayNotes() {
 
 
 }
+function updateNote(id , tittle , discription , myModal ){
+    console.log(id , tittle , discription)
+    let Utittle =[tittle]
+    let Udiscriptin =[discription]
+    
+    let innerHtml = "";
+    var script  = document.createElement("script");
+    if(tittle != null){
+        innerHtml =
+    ` 
+    <div id="updateclose" class="container " style="justify-content: center; height: auto;">  
+    <div class="card" style="width:300px ; opacity">
+      <div class="card-body">
+        <div class="modal-title" style="margin-top: 5%;">
+            <input id="updatedTitle" value='${Utittle}' style=" margin-left:5%; border: transparent; appearance: initial; text-shadow: none; border-bottom: transparent;  outline-width: 0;" placeholder="tittle"  > 
+         </div>
+         <div style="margin-top: 5%;" >
+             <input id="updatedDiscription" value='${Udiscriptin}' class="modal-body" style=" border: transparent; outline-width: 0;" placeholder="discription">
+         </div>
+         <div style="margin-top: -10%; margin-left: 8%;">
+            <button id="${id}" onclick="updateApicall(this.id) , myFunction()" alt="delete" style=" background-color: transparent; border: none; margin-left: 80%; margin-bottom: -8%; display: inline" >update </button>
+        </div>
+      </div>
+    </div>
+</div>
 
+`
+        
+}
+document.querySelector('#dailog').innerHTML = innerHtml
+
+}
+function myFunction() {
+    var x = document.getElementById("updateclose");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+function updateApicall(id){
+
+    const title = document.querySelector('#updatedTitle ').value;
+const discripption = document.querySelector('#updatedDiscription ').value;
+const updateid = id;
+console.log(id ,title , discripption)
+const noteData ={
+    
+        "noteId" : updateid,
+        "title": title,
+        "description": discripption,   
+};
+console.log(noteData);
+    let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/updateNotes";
+    let methodCall = "POST";
+    makeServiceCall(methodCall, postURL, true, noteData)
+        .then(responseText => {
+            console.log("note added succesfully")
+            DisplayNotes();
+        })
+        .catch(error => {
+            throw error;
+        });
+}
 function deleteNote(details){
     // let detailId = JSON.stringify(details);
     // console.log(detailId);
@@ -175,9 +254,11 @@ function deleteNote(details){
 
 }
 
+
 const resetForm = () => {
     setValue('#title', '');
     setValue('#description', '');
+    setValue('#colour','#FFFFFF');
 
 }
 
@@ -185,3 +266,18 @@ const setValue = (id, value) => {
     const element = document.querySelector(id);
     element.value = value;
 }
+
+
+// function updateNote(data){
+//     let innerHtml = "";
+//     for (let details of data) {
+
+//     }
+//     let data = {
+//         noteIdList: [details.id] ,
+//         "title": title,
+//         "description": description,
+//     }
+    
+
+// }
