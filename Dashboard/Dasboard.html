@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +17,10 @@
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link href="../css/material-wfont.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
   <link href="../css/ripples.min.css" rel="stylesheet">
   <link href="../css/custom.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,23 +28,58 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
   <script src="../js/piklor.js"></script>
   <script src="../js/handlers.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="Dashboard.css">
-  <title>Drawer</title>
+  
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+  
+
+  <!-- <script src="./getDrawerListNote.js"></script> -->
+  
   <script defer src="./Note-services.js"></script>
+  <script  src="./getDrawerListNote.js"></script>
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  
+  <style> 
+      .form-group { 
+          display: none; 
+         
+      } 
+      input.middle:focus {
+outline-width: 0;
+}
+button:focus {
+    outline: none;
+}
+  </style> 
+  <title>Drawer</title>
   <script>
     $(document).ready(function () {
       console.log("document loaded");
+     
+      icondisplay();
+
 
     });
 
     $(window).on("load", function () {
       console.log("window loaded");
+      $('body').on('hidden.bs.modal', function() {
+  if ($('.modal.in').length) {
+    $('body').addClass('modal-open');
+  }
+});
       DisplayNotes();
+  
     });
   </script>
 </head>
-<body action="#">
+<body >
   <nav class="navbar navbar-expand navbar-dark bg-primary">
     <a href="#" id="menu-toggle" class="navbar-brand">
       <span class="navbar-toggler-icon"></span></a>
@@ -67,18 +105,19 @@
           class="glyphicon glyphicon-search"> <i class="fa fa-search"></i> </a> </div>
     </div>
     <div class="dhanashri">
-      <img src="../Assets/images/dhanashri.jpg" alt="Avatar" class="avatar">
+      <img onclick="showProfile() " src="../Assets/images/dhanashri.jpg" alt="Avatar" class="avatar">
     </div>
   </nav>
+  
   <hr>
   <div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-       <li> <a href="#">Notes</a> </li>
-        <li> <a href="#">Reminders</a> </li>
+       <li> <a href="#" onclick=DisplayNotes();>Notes</a> </li>
+        <li> <a href="#" onclick=getReminderData();>Reminders</a> </li>
         <li> <a href="#">Edit Labels</a> </li>
-        <li> <a href="#">Archive</a> </li>
-        <li> <a href="#">Trash</a> </li>
+        <li> <a href="#" onclick=getArchiveData();>Archive</a> </li>
+        <li> <a href="#" onclick=getTrashNotes();>Trash</a> </li>
       </ul>
     </div>
     <br>
@@ -94,23 +133,33 @@
             <input placeholder="take a note...." class="middle-two" id="description" tabindex="1" autocomplete="off"
               aria-expanded="false">
           </div>
+          <div id="saveReminder">
+
+          </div>
           <div>
             <div class="svg-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
-                viewBox="0 0 16 16">
-                <path
-                  d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-person-plus" viewBox="0 0 16 16">
-                <path
-                  d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                <path fill-rule="evenodd"
-                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-              </svg>
-              <label class="picker-wrapper" id="wrapperId">
-                <button class="btn" id="btnn"
-                  style=" margin-left: -20%; width: 5%;padding: 0.1%; background-color: transparent;">
+              
+            <button id="button" style="background-color: transparent;border:none; width: 2px;" class="date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1" onclick="buttonSave()" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+            </svg>
+            <!-- <button onclick="saveDateTime()"></button> -->
+          </button>
+          
+          
+          <button data-toggle="modal" data-target="#exampleModal"  style="background-color:transparent;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-plus" viewBox="0 0 16 16">
+                            <path
+                              d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                            <path fill-rule="evenodd"
+                              d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                          </svg>
+                          </button>
+              <map class="picker-wrapper" id="wrapperId">
+                <button class="btn" id="btnn"  style=" margin-left: -20%; width: 5%;padding: 0.1%; background-color: transparent;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-palette" viewBox="0 0 16 16">
                     <path
@@ -119,14 +168,14 @@
                       d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z" />
                   </svg>
                 </button>
-              </label>
-              <svg xmlns="http://www.w3.org/2000/svg" style=" margin-left: 1%;" width="16" height="16"
+              </map>
+              <svg xmlns="http://www.w3.org/2000/svg" style=" margin-left: 4%;" width="16" height="16"
                 fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                 <path
                   d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
               </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive"
+              <svg xmlns="http://www.w3.org/2000/svg" style=" margin-left: 4%;" width="16" height="16" fill="currentColor" class="bi bi-archive"
                 viewBox="0 0 16 16">
                 <path
                   d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
@@ -149,21 +198,28 @@
         <div id="display" class="container-fluid"> </div>
       </div>
     </div>
-    <div id="dailog">
-      <script type="text/javascript">
-        $(function () {
-          $("#dialog").dialog({
-            modal: true,
-            autoOpen: true,
-            title: "jQuery Dialog",
-            width: 300,
-            height: 150
-          });
-          $("#btnShow").click(function () {
-            $('#dialog').dialog('open');
-          });
-        });
-      </script>
+    <div  class="emailSearchList" id="emailSearchList"></div>
+      <div id="profile" class="profile">
+      </div>
+      <div id="buttonsave">
+
+      </div>
+      <!-- <div id="reminderForm" class="form-group" >
+        <label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
+        <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+            <input class="form-control" size="16" id="reminder" type="text"  placeholder="enter time" readonly>
+            <div class="addon-th">
+            <span class="input-group-addon"><img class="glyphicon glyphicon-remove" src="../Assets/icons/x.svg" ></span>
+  <span class="input-group-addon"> <img  class="glyphicon glyphicon-th" src="../Assets/icons/calendar-minus.svg" ></span>
+  <button onclick="saveDateTime()">save</button>
+        </div> -->
+      
+<input  type="hidden" id="dtp_input1" /><br/>
+
+        
+    </div>
+    
+     
       <script>
         let colour = "";
         window.addEventListener("load", function () {
@@ -216,7 +272,7 @@
             event.stopPropagation();
           }
         });
-        $('body, #close-btn').click(function () {
+        $('#close-btn').click(function () {
           $('#collapse-example').hide();
           event.stopPropagation();
         })
@@ -234,6 +290,101 @@
           }
         }
       </script>
+     <div id="reminder"></div>
+     <script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+     <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+     <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+     
+     <script type="text/javascript">
+         $('.form_datetime').datetimepicker({
+             //language:  'fr',
+             weekStart: 1,
+             todayBtn:  1,
+         autoclose: 1,
+         todayHighlight: 1,
+         startView: 2,
+         forceParse: 0,
+             showMeridian: 1
+         });
+       $('.form_date').datetimepicker({
+             language:  'fr',
+             weekStart: 1,
+             todayBtn:  1,
+         autoclose: 1,
+         todayHighlight: 1,
+         startView: 2,
+         minView: 2,
+         forceParse: 0
+         });
+       $('.form_time').datetimepicker({
+             language:  'fr',
+             weekStart: 1,
+             todayBtn:  1,
+         autoclose: 1,
+         todayHighlight: 1,
+         startView: 1,
+         minView: 0,
+         maxView: 1,
+         forceParse: 0
+         });
+     </script>
+     <script type="text/javascript">
+      $(document).ready(function(){
+        $("#button").click(function(){
+        $("#reminderForm").toggle("fast");
+        });
+       
+      });
+      </script>
+      <script>
+         
+        function buttonSave(){
+          let innerHTML = "";
+          innerHTML=`
+          <button class="savehidden" id="savehidden" style="margin-left:50%;position: sticky; margin-top:8%" onclick="saveDateTime(this.id)"> save</button>
+          `
+          
+          document.querySelector('#buttonsave').innerHTML = innerHTML;
+          
+        }
+        // var x = document.getElementById("savehidden").innerHTML;
+        // x.style.display = "none";
+
+        function saveDateTime(id){
+          let innerHTML = "";
+          let reminder = document.getElementById('dtp_input1').value;
+          console.log(reminder)
+          console.log(id)
+         
+          if (reminder != ""){
+          innerHTML =`
+          
+          <div  type="hidden" id="dtp_input1"  style=" width: 130px; padding: 10px;  border: 1px solid rgb(90, 78, 78);  margin: 0;">${reminder}</div>
+          `
+          document.querySelector('#saveReminder').innerHTML = innerHTML;
+          let remId =  document.getElementById('dtp_input1'); 
+          console.log(remId)
+          // savenote(remId);
+          }else if(reminder = " ")
+          {
+            innerHTML =`<div style="display:none"></div>`
+          }
+          var x = document.getElementById('savehidden');
+          console.log(x)
+        x.style.display = "none";
+       
+        }
+        var x = document.getElementById('savehidden').innerHTML;
+        x.style.display = "none";
+        // $('savehidden').hide('savehidden')
+
+      </script>
+      <script>
+       
+      </script>
+      <div  class="dailogBox" id="dailogBox"></div>
+     
 </body>
 
 </html>
