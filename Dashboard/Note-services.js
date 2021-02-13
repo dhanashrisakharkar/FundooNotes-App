@@ -241,17 +241,7 @@ function TextChange(tBox) {
             }
         })
 }
-// $("#source").on('change keydown paste input', function(){
-//     doSomething();
-// });
 
-// const source = document.getElementById('source');
-// source.addEventListener('input', inputHandler);
-// const inputHandler = function(e) {
-    
-//     console.log(e.target.value)
-//   }
-  
 function updateNote(id , tittle , discription , myModal ){
     console.log(id , tittle , discription)
     let Utittle =[tittle]
