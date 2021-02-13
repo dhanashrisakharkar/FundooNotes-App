@@ -1,6 +1,6 @@
 // let color = "#FFFFFF";
 // document.body.style.background = color; 
-const savenote = () => {
+const savenote = (remId) => {
     try {
         AddNote();
         document.getElementById("cardId").style.background ="#FFFFFF";
@@ -8,7 +8,9 @@ const savenote = () => {
         document.getElementById("title").style.background ="#FFFFFF";
         document.getElementById("description").style.background ="#FFFFFF";
         document.getElementById("btnn").style.background ="#FFFFFF";       
-
+        let rem = document.getElementById("dtp_input1");
+        console.log(rem)
+        rem.style.display = "none";
         return;
 
     } catch (e) {
@@ -57,6 +59,8 @@ function makeServiceCall(methodType, url, async = true, noteData) {
 
 
 const AddNote = () => {
+    const reminder = document.getElementById('dtp_input1').value;
+    console.log(reminder)
     console.log(colour +" get colour");
     const color = colour;
     const title = document.querySelector('#title ').value;
@@ -67,6 +71,7 @@ const AddNote = () => {
         "title": title,
         "description": description,
         "color": color,
+        "reminder":reminder,
 
     };
     console.log(noteData);
@@ -85,6 +90,7 @@ const AddNote = () => {
 
 function DisplayNotes() {
     let data = [];
+    let email =  localStorage.getItem("email");
     let innerHtml = "";
     let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList";
     let methodCall = "GET";
@@ -98,7 +104,7 @@ function DisplayNotes() {
             console.log(data[0].title)
             for (let details of data) {
               console.log(details.color)
-             if(details.isDeleted === false) {
+             if(details.isDeleted === false && details.isArchived === false ) {
                  let array = [ details.id , details.title , details.description ,details.color ]
                  color = details.color
                  console.log(array)
@@ -106,22 +112,25 @@ function DisplayNotes() {
                                 <div class="noteCard my-2 mx-2 card" style="width: 18rem;background-color:${color}; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important; 
                                 border: 2px solid rgba(0,0,0,.125);
                                 border-radius: 0.55rem;">
-                                        <div class="card-body">
+                                        <div class="card-body" style="margin-bottom: -10%">
                                             <h5 class="card-title" data-toggle="modal" data-target="#myModal" onClick="updateNote('${details.id}','${details.title}','${details.description}',this )">${details.title}</h5>
                                             <p class="card-text" style="margin-top: 10%;">${details.description}</p>
+                                            <div style=" width: 300px; padding: 10px;  border: none;  margin-left: -8%; margin-top:-4%">${details.reminder}</div>
                                             <div class="svg-icon"  padding: 10px 0px;">
-                                            <svg style="margin-left: 3px; xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
+                                            <svg style="margin-left: 3px; margin-top:2%" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
                                             viewBox="0 0 16 16">
                                             <path
                                               d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                                           </svg>
-                                          <svg  style="margin-left: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                            class="bi bi-person-plus" viewBox="0 0 16 16">
-                                            <path
-                                              d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                                            <path fill-rule="evenodd"
-                                              d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-                                          </svg>
+                                          <button data-toggle="modal" data-target="#exampleModal"  style="background-color:transparent;margin-left: -8px;">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                          class="bi bi-person-plus" viewBox="0 0 16 16">
+                                                          <path
+                                                            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                                          <path fill-rule="evenodd"
+                                                            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                                        </svg>
+                                                        </button>
                                           <svg  style="margin-left: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette"
                                             viewBox="0 0 16 16">
                                             <path
@@ -135,27 +144,114 @@ function DisplayNotes() {
                                             <path
                                               d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
                                           </svg>
+                                          <button onclick="archiveData('${details.id}','${details.title}','${details.description}','${color}',this)" style="background-color:transparent;">
                                           <svg  style="margin-left: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive"
                                             viewBox="0 0 16 16">
                                             <path
                                               d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                                           </svg>
+                                          </button>
                                        <div style="margin-top: -10%;">
-                                      <button id="${details.id}" onclick="deleteNote(this.id)" alt="delete" style=" background-color: transparent; border: none; margin-left: 75%; margin-bottom: -8%; display: inline" >Delete </button>
+                                      <button  class="delete" id="${details.id}" onclick="deleteNote(this.id)" alt="delete" style=" background-color: transparent; border: none; margin-left: 75%; margin-bottom: -8%; display: inline;margin-top: -6px;" >Delete </button>
                                   </div>
                                   </div>
                                         </div>                                        
-                                    </div>`
+                                    </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                      <div class="card text-center" style="text-align:start!important;width: 100%; margin-left: 0; ">
+                                      <div class="card-header" style="background-color: white; font-family:'Roboto',arial,sans-serif; color: #202124;direction: ltr;font-weight: bold;font-size: 1.2rem;">
+                                        Collaborators
+                                      </div>
+                                      <!-- <hr style="width: 100px;  margin-left: auto; margin-right: auto;height: 1px;background-color: #666; opacity: 0.5; margin-top: -20px;">   -->
+                                      <div class="card-body">
+                                        <div class="dhanashri" style=" margin-left: 0;">
+                                          <img  src="../Assets/images/dhanashri.jpg" alt="Avatar" class="avatar">
+                                          <h5 style="margin-left:12%; margin-top: -8%;" class="card-title">${email}</h5>
+                                        </div>
+                                       
+                                        <img style="border: 1px solid black; margin-top: 1%;" src="../Assets/icons/addperson.png" alt="Avatar" class="avatar">
+                                        <input type="text"  id="source" oninput="TextChange(event.target.value)" class="middle" placeholder="enter the mail-id" style="border: none; height: 40px; " tabindex="1">
+                                       
+                                      </div>
+                                      <div class="card-footer text-muted" style="text-align: end;">
+                                       <!-- <button style="background-color: transparent;border:none;">cancle</button> -->
+                                       <div style="margin-top: 2%;">
+                                       <button type="button" class="btn btn-secondary" data-dismiss="modal" style=" border:none;">Close</button>
+                                       <button  type="button" class="btn btn-secondary" style="background-color: transparent;border:none;">save</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                    `
+                                    document.querySelector('#display').innerHTML = innerHtml
 
              }
             };
            
-            document.querySelector('#display').innerHTML = innerHtml
+            
 
         })
-
+        
+          
 
 }
+function TextChange(tBox) {
+    console.log(tBox)
+
+    let data = {
+        searchWord: tBox
+    }
+
+    // let data = [];
+    let innerHtml = "";
+    let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/user/searchUserList";
+    let methodCall = "POST";
+    makeServiceCall(methodCall, postURL, true, data)
+        .then(responseText => {
+            let dataList = [];
+            let response = JSON.parse(responseText);
+           console.log(response)
+           dataList = Object(response.data.details)
+            console.log(dataList)
+            console.log(dataList.length)
+           
+            for (let details of dataList) {
+                console.log(details.email);
+                  
+              if(dataList.length <= 10)
+              {
+                innerHtml += `
+               
+                <div class="w3-container">
+                <ul class="w3-ul w3-card-4">
+                <li class="list-group-item">${details.email}</li>
+                </ul>
+                </div>
+               
+                `
+                
+                document.querySelector('#emailSearchList').innerHTML = innerHtml
+              }
+   
+            }
+        })
+}
+// $("#source").on('change keydown paste input', function(){
+//     doSomething();
+// });
+
+// const source = document.getElementById('source');
+// source.addEventListener('input', inputHandler);
+// const inputHandler = function(e) {
+    
+//     console.log(e.target.value)
+//   }
+  
 function updateNote(id , tittle , discription , myModal ){
     console.log(id , tittle , discription)
     let Utittle =[tittle]
@@ -240,6 +336,30 @@ function deleteNote(details){
         DisplayNotes();
 }
 
+function archiveData(archiveid, archiveTittle,archiveDiscription,archiveColor){
+
+    console.log(archiveid, archiveTittle,archiveDiscription)
+    console.log(archiveColor);
+
+    let archiveDataid = {
+        noteIdList:[archiveid],
+         isArchived: true,
+    }
+    console.log(archiveDataid);
+    let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/archiveNotes";
+    let methodCall = "POST";
+    makeServiceCall(methodCall, postURL, true, archiveDataid)
+        .then(responseText => {
+            console.log(responseText)
+            console.log("note Archived succesfully")
+            DisplayNotes();
+        })
+        .catch(error => {
+            throw error;
+        });
+       
+}
+
 
 const resetForm = () => {
     setValue('#title', '');
@@ -254,3 +374,50 @@ const setValue = (id, value) => {
 }
 
 
+// function icondisplay(){
+//     let innerHtml = "";
+//  innerHtml = `
+//  <button data-toggle="modal" data-target="#exampleModal">
+// <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+//                 class="bi bi-person-plus" viewBox="0 0 16 16">
+//                 <path
+//                   d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+//                 <path fill-rule="evenodd"
+//                   d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+//               </svg>
+//               </button>
+ 
+  
+//   <!-- Modal -->
+//   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+//     <div class="modal-dialog">
+//       <div class="modal-content">
+//       <div class="card text-center" style="text-align:start!important;width: 100%;">
+//       <div class="card-header" style="background-color: white; font-family:'Roboto',arial,sans-serif; color: #202124;direction: ltr;font-weight: bold;font-size: 1.2rem;">
+//         Collaborators
+//       </div>
+//       <!-- <hr style="width: 100px;  margin-left: auto; margin-right: auto;height: 1px;background-color: #666; opacity: 0.5; margin-top: -20px;">   -->
+//       <div class="card-body">
+//         <div class="dhanashri">
+//           <img  src="../Assets/images/dhanashri.jpg" alt="Avatar" class="avatar">
+//           <h5 style="margin-left:12%; margin-top: -8%;" class="card-title">dhanashrisakharkar333@gmail.com</h5>
+//         </div>
+       
+//         <img style="border: 1px solid black; margin-top: 1%;" src="../Assets/icons/addperson.png" alt="Avatar" class="avatar">
+//         <input class="middle" placeholder="enter the mail-id" style="border: none; height: 40px; " tabindex="1">
+       
+//       </div>
+//       <div class="card-footer text-muted" style="text-align: end;">
+//        <!-- <button style="background-color: transparent;border:none;">cancle</button> -->
+//        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+//        <button style="background-color: transparent;border:none;">save</button>
+//       </div>
+//     </div>
+//   </div>
+//       </div>
+//     </div>
+//   </div>
+// `
+// document.querySelector('#dailogBox').innerHTML = innerHtml
+ 
+// }
