@@ -11,8 +11,31 @@
     color: gray;
     font-style: initial;
 }
+.fundoo-tittle{
+    font: 1em sans-serif;
+    font-style:normal ;
+    font-size: 30px;
+    margin-left: -5%;
+    letter-spacing: -0.7mm;
+    margin-top: -85%;
+    display: contents;
+
+}
+.tittle {
+    display: table;
+    margin-left: -27%;
+}
+.pl-5, .px-5 {
+    padding-left: 1rem!important;
+    margin-left: 5%;
+    width: 60%;
+}
 .display-cards{
-    position: fixed;
+    position: absolute;
+    margin-top: 3%;
+}
+a:hover {
+  background-color: yellow;
 }
 .navbar{
     padding: .2rem 1rem;
@@ -24,19 +47,24 @@
     width: 100%;
     height: 30%;
 }
-.pl-5, .px-5 {
+/* .pl-5, .px-5 {
     padding-left: 3rem!important;
     margin-left: 5%;
     width: 40%;
-}
+} */
 .google-keep{
-    margin-left: 5%;
-    width: 10%;
+    margin-left: 1%;
+    width: 30%;
+    /* margin-top: 5%; */
+    margin-top: -23%;
+
 }
 .image{
-    margin-top: -8px;
-    width: 40%;
-    height: 10%;
+    width: 3%;
+    opacity: inherit;
+    z-index: 2;
+    margin-top: 10%;
+    position: absolute;
 }
 .search {
     width: 2000px;
@@ -48,7 +76,8 @@
     border-radius: 5px;
   
 }
-hr {width: 2000px;margin-left: auto;margin-right: auto;height: 1px;background-color:#666; opacity: 0.5; margin-top:-2px ;}
+hr {width: 2000px;margin-left: auto;margin-right: auto;height: 1px;background-color:#666; 
+    opacity: 0.5; margin-top:-2px ;}
 .search-input {
     background-color: whitesmoke;
     color: white;
@@ -89,10 +118,13 @@ hr {width: 2000px;margin-left: auto;margin-right: auto;height: 1px;background-co
     margin-right: 90%;
 }
 .glyphicon-search{
-    margin-top: -50px;
+    margin-top: 1%;
 }
+/* .savehidden:hover{
+    display:none;
+} */
 .glyphicon{
-    margin-top: 8px;
+    
     color: black;
     float: right;
     display: flex;
@@ -122,9 +154,10 @@ a:link {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    /* margin-left: -100%; */
   }
   .dhanashri{
-      margin-left: 30%;
+      margin-left: 16%;
       margin-top: 1%;
   }
   .bar1, .bar2, .bar3 {
@@ -176,10 +209,11 @@ a:link {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    margin-top: -15px;
+    margin-top: -16px;
     }
     .bi-bell {
-        margin-left: 15px;
+        margin-left: -90%;
+        margin-top: -35%;
     }
     .bi-lightbulb{
         margin-left: 8%;
@@ -190,18 +224,43 @@ a:link {
         margin-top: -10%;
     }
     .svg-icon{
-    margin-top: 3%;
+    margin-top: 1%;
+    margin-bottom: 10%;
+    display: flow-root;
+    }
+    .profile{
+        margin-left: 70%;
+        margin-top: -8%;
     }
     .close-button{
-       margin-top: -5%; 
+       margin-top: -16%; 
+       margin-right: 4%;
     }
-    .bi-person-plus , .bi-palette , .bi-image , .bi-archive , .bi-three-dots-vertical{
+    .container{
+        display:grid;
+        justify-content: center;
+        align-items:center;
+
+
+    }
+      .bi-image , .bi-archive , .bi-three-dots-vertical{
         /* margin-top: 45px; */
+        margin-left: 40px;
+        
+    }
+    .bi-palette {
+        margin-left: 25px;
+    }
+    .bi-person-plus {
         margin-left: 25px;
     }
     .btn-button{
      background-color: transparent;
      margin-left: 90%;   
+    }
+    .button:hover{
+        border:transparent;
+        background-color: transparent;
     }
     /* .bi-person-plus-fill{
         margin-left: 15px;
@@ -213,16 +272,23 @@ a:link {
     i {
         font-style: italic;
     }
-    .container-fluid{
-        width: 80%;
-        /* margin-bottom: 50%; */
-        display: inline-flex;
-        flex-wrap: wrap;
+    .display-cards{
         margin-left: 20%;
+    }
+    
+    .container-fluid{
+        width: 100%;
+        /* margin-bottom: 50%; */
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 5%;
+    }
+    .glyphicon-remove:before {
+        content: "\e014";
     }
    .navbar-dark .navbar-toggler-icon{
         background-image : url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-        margin-top: 5px;
+        margin-top: 15px;
         margin-left: 8px;
     }
     #nav-toggle-button{
@@ -243,6 +309,12 @@ a:link {
     position: absolute;
     margin-right: -250px;
     }
+    .picker-wrapper {
+        /* padding: 40px;
+        height: 10%;
+        margin-bottom: 5%; */
+        margin-left: 15%;
+    }
     .sidebar-nav {
     position: absolute;
     top: 0;
@@ -250,6 +322,7 @@ a:link {
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-top: 4%;
     }
     .sidebar-nav li {
     text-indent: 20px;
@@ -263,7 +336,7 @@ a:link {
     .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255, 255, 255, 0.2);
+    background: #feefc3 !important;
     }
     .sidebar-nav li a:active, .sidebar-nav li a:focus {
     text-decoration: none;
@@ -282,6 +355,10 @@ a:link {
     }
 
     .middle{
+        font-size: 18px;
+        height: 40px;
+    }
+    .middle-two{
         font-size: 18px;
         height: 40px;
     }
@@ -377,8 +454,194 @@ a:link {
         appearance: initial;
         -webkit-rtl-ordering: logical;
         cursor: text;
+        
     }
     input.middle:focus {
         outline-width: 0;
     }
-    
+    .form-control{
+        height: 34px;
+        padding: 6px 9px;
+        width: 20%;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555;
+        vertical-align: middle;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    .bi-bell .form-control {
+        width: 30%;
+        margin-bottom: 0;
+    }
+    .input-group-addon, .input-group-btn {
+        width: 3%;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin-left: -20%;
+    }
+    .addon-th{
+        margin-left: 28%;
+        margin-top: 0%;
+        width: 7%;
+    }
+   
+    .glyphicon-th{
+       
+    background-color: bisque;
+    }
+    .glyphicon-remove{
+    width:2%
+    }
+    .glyphicon-remove:before {
+        content: "\e014";
+    }
+    .input-group {
+        position: absolute;
+        display: table;
+        border-collapse: collapse;
+        margin-left: -1%;
+    margin-top: 8%;
+    }
+    .input-group-addon:last-child {
+        border-left: 0;
+    }
+    .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child>.btn, .input-group-btn:last-child>.dropdown-toggle, .input-group-btn:first-child>.btn:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+    .input-group .input-group-addon {
+        border: 0;
+        background: transparent;
+    }
+    .input-group-addon {
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1;
+        text-align: center;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .input-group-addon, .input-group-btn, .input-group .form-control {
+        display: table-cell;
+    }
+
+    @media all and (min-device-width: 320px) and (max-device-width: 960px) {
+        body {
+            display:grid;
+            width : 100%;
+            overflow-x: hidden;
+            position: fixed;
+        }
+        .navbar {
+            padding: .2rem 1rem;
+            background-color: #fff;
+            display: grid;
+        }
+        .navbar-expand{
+            width: 150%;
+             height: 100%;
+            
+        }
+        .image {
+            width: 1%;
+            opacity: inherit;
+            z-index: 2;
+            margin-top: 4.6%;
+            position: absolute;
+            margin-left: 0.2%;
+        }
+       .svg-icon{
+        display: table;
+        margin-top: -5%;
+        margin-left: -12px;
+           
+       }
+       .bi-bell{
+           margin-right: -5%;
+       }
+       .sidebar-nav {
+        left: -30%;
+       }
+
+        .card{
+            width: 10%;
+            display : grid;
+            margin-left: 1%;
+            position: relative
+        }
+        .delete{
+            display:block;
+            position: absolute;
+            content: "D";
+            font-size: x-small;
+        }
+        .d-flex{
+            margin-top:-4%;
+            width: 10%;
+            margin-left: 4%;
+        }
+        .dhanashri{
+            margin-top: -4%;
+            margin-left: 13%;
+        }
+        .navbar-dark .navbar-toggler-icon{
+            margin-left: -1%;
+        }
+        #wrapper.toggled #sidebar-wrapper{
+            width : 100px;
+          
+        }
+        .middle {
+            font-size: 18px;
+            height: 40px;
+            width: 50%;
+        }
+        .middle-two{
+            font-size: 18px;
+            height: 40px;
+            width: 50%;
+        }
+        #sidebar-wrapper{
+            left: 70px;
+        }
+        hr {
+            width: 3000px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 1px;
+            background-color: #666;
+            opacity: 0.5;
+            margin-top: -20px;
+        }
+        .sidebar-nav li {
+            text-indent: 10px;
+            line-height: 40px;
+            margin-left: 18%;
+        }
+        .display-cards{
+            display:grid;
+            display: inline-flex;
+
+        }
+        .container-fluid {
+            width: 70%;
+            height: 50%;
+          
+            display: inline-flex;
+            flex-wrap: wrap;
+            margin-left: 5%;
+        }
+        .close-button {
+            margin-top: -16%;
+            margin-right: 12%;
+        }
+        
+    }
