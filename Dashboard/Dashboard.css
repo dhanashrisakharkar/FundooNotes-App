@@ -603,6 +603,17 @@ a:link {
             opacity: 0.5;
             margin-top: -20px;
         }
+        .form-group {
+            display: none;
+          }
+      
+          input.middle:focus {
+            outline-width: 0;
+          }
+      
+          button:focus {
+            outline: none;
+          }
         .sidebar-nav li {
             text-indent: 10px;
             line-height: 40px;
