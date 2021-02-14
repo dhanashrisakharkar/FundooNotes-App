@@ -1,0 +1,23 @@
+label, input {
+    display: block;
+}
+ul.form {
+    width  : 500px;
+    padding: 0px;
+    margin : 0px;
+    list-style-type: none;
+}
+ul.form li  {
+    width : 500px;
+}
+ul.form li input {
+    width : 200px;
+}
+ul.form li textarea {
+    width : 450px;
+    height: 150px;
+}
+ul.form li.twoColumnPart {
+    float : left;
+    width : 250px;
+}
