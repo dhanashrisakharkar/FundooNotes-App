@@ -1,5 +1,4 @@
 .navbar-dark .navbar-toggler {
-    /* color: rgba(255,255,255,.5); */
     border-color: black;
     align-items: flex-start;
     margin-right: 100%;
@@ -47,15 +46,10 @@ a:hover {
     width: 100%;
     height: 30%;
 }
-/* .pl-5, .px-5 {
-    padding-left: 3rem!important;
-    margin-left: 5%;
-    width: 40%;
-} */
+ 
 .google-keep{
     margin-left: 1%;
     width: 30%;
-    /* margin-top: 5%; */
     margin-top: -23%;
 
 }
@@ -120,9 +114,7 @@ hr {width: 2000px;margin-left: auto;margin-right: auto;height: 1px;background-co
 .glyphicon-search{
     margin-top: 1%;
 }
-/* .savehidden:hover{
-    display:none;
-} */
+
 .glyphicon{
     
     color: black;
@@ -154,7 +146,6 @@ a:link {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    /* margin-left: -100%; */
   }
   .dhanashri{
       margin-left: 16%;
@@ -244,7 +235,6 @@ a:link {
 
     }
       .bi-image , .bi-archive , .bi-three-dots-vertical{
-        /* margin-top: 45px; */
         margin-left: 40px;
         
     }
@@ -262,9 +252,7 @@ a:link {
         border:transparent;
         background-color: transparent;
     }
-    /* .bi-person-plus-fill{
-        margin-left: 15px;
-    } */
+    
     .bell-button{
         position: absolute;
         z-index: 2;
@@ -278,7 +266,6 @@ a:link {
     
     .container-fluid{
         width: 100%;
-        /* margin-bottom: 50%; */
         display: flex;
         flex-wrap: wrap;
         margin-left: 5%;
@@ -310,9 +297,6 @@ a:link {
     margin-right: -250px;
     }
     .picker-wrapper {
-        /* padding: 40px;
-        height: 10%;
-        margin-bottom: 5%; */
         margin-left: 15%;
     }
     .sidebar-nav {
@@ -353,7 +337,6 @@ a:link {
     color: #fff;
     background: none;
     }
-
     .middle{
         font-size: 18px;
         height: 40px;
@@ -427,7 +410,6 @@ a:link {
         width: 40%;
         margin-left: 35%;
         height: 50%;
-        /* box-shadow: 0 .5rem 1rem rgba(5, 0, 0, 0.425)!important; */
         box-shadow: 0 .5rem 1rem rgba(1, 0, 0, 0.125)!important;
         border: 2px solid rgba(0,0,0,.125);
         border-radius: 0.55rem;
