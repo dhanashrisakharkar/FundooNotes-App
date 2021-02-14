@@ -65,16 +65,10 @@ function getArchiveData(){
                                   </div>
                                         </div>                                        
                                     </div>`
-
              }
             };
-           
             document.querySelector('#display').innerHTML = innerHtml
-
         })
-
-
-
 }
 
 
@@ -144,16 +138,12 @@ function getTrashNotes(){
                                   </div>
                                         </div>                                        
                                     </div>`
-
              }
             };
-           
             document.querySelector('#display').innerHTML = innerHtml
-
         })
-
-
 }
+
 function getReminderData(){
   console.log("lets get reminder")
   let data = [];
@@ -221,27 +211,18 @@ function getReminderData(){
                 </div>
                       </div>                                        
                   </div>`
-
            }
           };
-         
           document.querySelector('#display').innerHTML = innerHtml
-
       })
-
 }
 
-
-
 function showProfile(){
-
   let innerHTML = "";
-
   let name =  localStorage.getItem("firstName");
   let lastname =  localStorage.getItem("lastName");
   let email =  localStorage.getItem("email");
   console.log("name",name)
-  
   innerHTML = ` 
   <div class="container" id="cardDisplay" style="position: relative;width:350px; height:250px;">
   <div  class="card" style="width:400px; height:250px;" >
@@ -259,10 +240,6 @@ function showProfile(){
   </div>
   `
   document.querySelector('#profile').innerHTML = innerHTML;
-  
-  
-  
-  
   }
 
   function myFunctionprofile() {
