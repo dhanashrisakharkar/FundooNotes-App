@@ -35,13 +35,10 @@
   <link rel="stylesheet" type="text/css" href="Dashboard.css">
   <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <script defer src="./Note-services.js"></script>
+  <script defer src="./Dashboard.js"></script>
   <script src="./getDrawerListNote.js"></script>
   <title>Dashboard</title>
   <script>
-    $(document).ready(function () {
-      console.log("document loaded");
-      icondisplay();
-    });
     $(window).on("load", function () {
       console.log("window loaded");
       $('body').on('hidden.bs.modal', function () {
@@ -49,7 +46,7 @@
           $('body').addClass('modal-open');
         }
       });
-      DisplayNotes();
+      displayNotes();
     });
   </script>
 </head>
@@ -87,7 +84,7 @@
   <div id="wrapper" class="toggled">
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li> <a href="#" onclick=DisplayNotes();>Notes</a> </li>
+        <li> <a href="#" onclick=displayNotes();>Notes</a> </li>
         <li> <a href="#" onclick=getReminderData();>Reminders</a> </li>
         <li> <a href="#">Edit Labels</a> </li>
         <li> <a href="#" onclick=getArchiveData();>Archive</a> </li>
@@ -296,15 +293,15 @@
   </script>
   <script>
     let reminder = "";
-    console.log(reminder)
-    function buttonSave() {
+    const buttonSave = () => {
       let innerHTML = "";
       innerHTML = `
           <button class="savehidden" id="savehidden" style="margin-left:50%;position: sticky; margin-top:8%" onclick="saveDateTime(this.id)"> save</button>
           `
       document.querySelector('#buttonsave').innerHTML = innerHTML;
     }
-    function saveDateTime(id) {
+
+    const saveDateTime = (id) => {
       let innerHTML = "";
       reminder = document.getElementById('dtp_input1').value;
       console.log(reminder)
@@ -315,12 +312,10 @@
           `
         document.querySelector('#saveReminder').innerHTML = innerHTML;
         let remId = document.getElementById('dtp_input1');
-        console.log(remId)
       } else if (reminder = " ") {
         innerHTML = `<div style="display:none"></div>`
       }
       var x = document.getElementById('savehidden');
-      console.log(x)
       x.style.display = "none";
     }
     var x = document.getElementById('savehidden').innerHTML;
