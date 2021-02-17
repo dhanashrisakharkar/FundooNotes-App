@@ -1,6 +1,5 @@
 let innerHTML = "";
-function getArchiveData(){
-    console.log("lets archive")
+const getArchiveData = () => {
     let data = [];
     let innerHtml = "";
     let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/getArchiveNotesList";
@@ -8,17 +7,9 @@ function getArchiveData(){
     makeServiceCall(methodCall, postURL, true)
         .then(responseText => {
             let response = JSON.parse(responseText);
-           console.log(response)
             data = Object(response.data.data)
-            console.log(data)
-            console.log(data.length)
-            console.log(data[0].title)
             for (let details of data) {
-              console.log(details.color)
              if( details.isArchived === true ) {
-                 let array = [ details.id , details.title , details.description ,details.color ]
-                 color = details.color
-                 console.log(array)
                 innerHtml += `
                                 <div class="noteCard my-2 mx-2 card" style="width: 18rem;background-color:${color}; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important; 
                                 border: 2px solid rgba(0,0,0,.125);
@@ -71,8 +62,7 @@ function getArchiveData(){
         })
 }
 
-
-function getTrashNotes(){
+const getTrashNotes = () => {
   console.log("lets get deleted note")
     let data = [];
     let innerHtml = "";
@@ -81,17 +71,9 @@ function getTrashNotes(){
     makeServiceCall(methodCall, postURL, true)
         .then(responseText => {
             let response = JSON.parse(responseText);
-           console.log(response)
             data = Object(response.data.data)
-            console.log(data)
-            console.log(data.length)
-            console.log(data[0].title)
             for (let details of data) {
-              console.log(details.color)
              if( details.isDeleted === true ) {
-                 let array = [ details.id , details.title , details.description ,details.color ]
-                 color = details.color
-                 console.log(array)
                 innerHtml += `
                                 <div class="noteCard my-2 mx-2 card" style="width: 18rem;background-color:${color}; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important; 
                                 border: 2px solid rgba(0,0,0,.125);
@@ -144,8 +126,7 @@ function getTrashNotes(){
         })
 }
 
-function getReminderData(){
-  console.log("lets get reminder")
+const getReminderData = () => {
   let data = [];
   let innerHtml = "";
   let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/getReminderNotesList";
@@ -153,17 +134,9 @@ function getReminderData(){
   makeServiceCall(methodCall, postURL, true)
       .then(responseText => {
           let response = JSON.parse(responseText);
-         console.log(response)
           data = Object(response.data.data)
-          console.log(data)
-          console.log(data.length)
-          console.log(data[0].title)
           for (let details of data) {
-            console.log(details.color)
            if( details.modifiedDate != " " ) {
-               let array = [ details.id , details.title , details.description ,details.color,details.modifiedDate  ]
-               color = details.color
-               console.log(array)
               innerHtml += `
               <div class="noteCard my-2 mx-2 card" style="width: 18rem;background-color:${color}; box-shadow: 0 .2rem 1rem rgba(0.1, 1, 1, 0.1)!important; 
               border: 2px solid rgba(0,0,0,.125);
@@ -217,12 +190,11 @@ function getReminderData(){
       })
 }
 
-function showProfile(){
+const showProfile = () => {
   let innerHTML = "";
   let name =  localStorage.getItem("firstName");
   let lastname =  localStorage.getItem("lastName");
   let email =  localStorage.getItem("email");
-  console.log("name",name)
   innerHTML = ` 
   <div class="container" id="cardDisplay" style="position: relative;width:350px; height:250px;">
   <div  class="card" style="width:400px; height:250px;" >
@@ -242,9 +214,8 @@ function showProfile(){
   document.querySelector('#profile').innerHTML = innerHTML;
   }
 
-  function myFunctionprofile() {
+  const myFunctionprofile = () => {
     var x = document.getElementById("cardDisplay") ;
-    console.log(x)
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
