@@ -140,6 +140,7 @@ a:link {
   }
   .button{
       margin-top: 20px;
+      
   }
   .avatar {
     vertical-align: middle;
@@ -202,7 +203,14 @@ a:link {
     transition: all 0.5s ease;
     margin-top: -16px;
     }
-    .bi-bell {
+    button:focus {
+        outline: none;
+      }
+      .personButton{
+        background-color:transparent;
+        margin-left: -3%;
+      }
+    .bi.bi-bell {
         margin-left: -90%;
         margin-top: -35%;
     }
@@ -234,15 +242,25 @@ a:link {
 
 
     }
-      .bi-image , .bi-archive , .bi-three-dots-vertical{
+    .btn{
+        margin-left: -18%;
+        width: 5%;
+        padding: 0.1%;
+        background-color: transparent;
+    }
+      .bi-archive , .bi-three-dots-vertical{
         margin-left: 40px;
         
     }
     .bi-palette {
-        margin-left: 25px;
+        margin-left: 2px;
     }
     .bi-person-plus {
         margin-left: 25px;
+    }
+    .bi.bi-image{
+        margin-left: 0%;
+       
     }
     .btn-button{
      background-color: transparent;
@@ -424,6 +442,10 @@ a:link {
     button.btn-button:focus {
         outline-width: 0;
     }
+    .date{
+        background-color: transparent;
+        border:none; width: 2px;
+    }
     input {
         text-rendering: auto;
         letter-spacing: normal;
@@ -457,7 +479,7 @@ a:link {
         -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     }
-    .bi-bell .form-control {
+     .form-control {
         width: 30%;
         margin-bottom: 0;
     }
