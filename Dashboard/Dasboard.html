@@ -4,36 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- backgroud colour and onclick colour -->
   <link href="../css/material-wfont.min.css" rel="stylesheet">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+  <!-- Display the notes -->
+  <!-- Date time -->
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <link href="../css/ripples.min.css" rel="stylesheet">
-  <link href="../css/custom.css" rel="stylesheet">
-  <script src="../js/piklor.js"></script>
-  <script src="../js/handlers.js"></script>
-  <link rel="stylesheet" type="text/css" href="Dashboard.css">
   <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+  <!-- colour pallete -->
+  <link href="../css/custom.css" rel="stylesheet">
+  <!-- piklor labraries -->
+  <script src="../js/piklor.js"></script>
+  <!-- <script src="../js/handlers.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="Dashboard.css">
   <script defer src="./Note-services.js"></script>
   <script defer src="./Dashboard.js"></script>
   <script src="./getDrawerListNote.js"></script>
@@ -47,6 +31,7 @@
         }
       });
       displayNotes();
+
     });
   </script>
 </head>
@@ -117,7 +102,7 @@
                     d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
                 </svg>
               </button>
-              <button class="personButton" data-toggle="modal" data-target="#exampleModal" >
+              <button class="personButton"  data-toggle="modal" data-target="#exampleModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                   class="bi bi-person-plus" viewBox="0 0 16 16">
                   <path
@@ -143,7 +128,7 @@
                 <path
                   d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
               </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" style=" margin-left: 4%;" width="16" height="16"
+              <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16"
                 fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
                 <path
                   d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
@@ -170,6 +155,7 @@
     <div id="profile" class="profile">
     </div>
     <div id="buttonsave">
+
     </div>
     <div class="dailog" id="dailog"></div>
     <input type="hidden" id="dtp_input1" /><br />
@@ -217,8 +203,6 @@
       });
     });
   </script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
   <script>
     $('#click-to-show, #collapse-example').click(function (e) {
       if ($(e.target).attr('id') != 'close-btn') {
@@ -245,8 +229,6 @@
     }
   </script>
   <div id="reminder"></div>
-  <script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
-  <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
   <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
   <script type="text/javascript">
@@ -292,37 +274,33 @@
   </script>
   <script>
     let reminder = "";
-    const buttonSave = () => {
+    function buttonSave() {
       let innerHTML = "";
       innerHTML = `
           <button class="savehidden" id="savehidden" style="margin-left:50%;position: sticky; margin-top:8%" onclick="saveDateTime(this.id)"> save</button>
           `
       document.querySelector('#buttonsave').innerHTML = innerHTML;
     }
-
-    const saveDateTime = (id) => {
+    function saveDateTime(id) {
       let innerHTML = "";
       reminder = document.getElementById('dtp_input1').value;
-      console.log(reminder)
-      console.log(id)
       if (reminder != "") {
         innerHTML = `
           <div  type="hidden" id="dtp_input1"  style=" width: 130px; padding: 10px;  border: 1px solid rgb(90, 78, 78);  margin: 0;">${reminder}</div>
           `
         document.querySelector('#saveReminder').innerHTML = innerHTML;
         let remId = document.getElementById('dtp_input1');
+        console.log(remId)
       } else if (reminder = " ") {
         innerHTML = `<div style="display:none"></div>`
       }
       var x = document.getElementById('savehidden');
+      console.log(x)
       x.style.display = "none";
     }
-    var x = document.getElementById('savehidden').innerHTML;
-    x.style.display = "none";
-  </script>
-  <script>
   </script>
   <div class="dailogBox" id="dailogBox"></div>
+
 </body>
 
 </html>
